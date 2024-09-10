@@ -1,0 +1,389 @@
+/* Global Styles */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .restaurant-search-with-filters {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  @keyframes subtleGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(102, 92, 92, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 15px rgba(102, 92, 92, 0.7);
+    }
+  }
+  
+  .grey-heading {
+    font-size: 3.5rem;
+    color: #999797;
+    font-family: monospace;
+    margin-bottom: 30px;
+    animation: subtleGlow 4s ease-in-out infinite;
+  }
+  
+  /* Cuisine Nav Bar */
+  .cuisine-nav-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+  }
+  
+  .cuisine-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .cuisine-box:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+  }
+  
+  .cuisine-box.selected {
+    background-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  }
+  
+  /* Inputs */
+  .location-inputs-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .input-field {
+    width: 30%;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    outline: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-field:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+  
+  .range-input-container {
+    margin-bottom: 30px;
+  }
+  
+  .range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #333;
+    outline: none;
+    border-radius: 4px;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff0000;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  /* Button */
+  .button-container {
+    margin-bottom: 30px;
+  }
+  
+  .search-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  }
+  
+  .search-button:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  }
+  
+  /* Restaurant Display Boxes */
+  .restaurant-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .restaurant-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #ff0000;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+  }
+  
+  .restaurant-box:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-box {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    background-color: grey;
+    border-radius: 50%; /* Keep this to make it circular */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  
+  .pagination-box.active {
+    background-color: darkred; /* Highlight the active page */
+  }
+  
+  .pagination-box:hover {
+    background-color: white;
+    transform: scale(1.1); /* Slight hover effect */
+  }
+
+
+  /* Overlay for the details card */
+.details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.details-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Card to display restaurant details */
+.details-card {
+    background-color: #1a1a1a;
+    color: white;
+    width: 80%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.details-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.details-card p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.details-card .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.details-card .close-button:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+/* Additional info section inside the card */
+.details-card .additional-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.additional-info div {
+    flex: 1;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.additional-info div:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .details-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .details-card h2 {
+        font-size: 2rem;
+    }
+
+    .details-card p {
+        font-size: 1.1rem;
+    }
+
+    .additional-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .additional-info div {
+        margin-bottom: 10px;
+        width: 80%;
+    }
+}
+/* Modal Overlay */
+.restaurant-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+  }
+  
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Restaurant Name */
+  .modal-content h2 {
+    font-size: 2rem;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+  
+  /* Restaurant Details */
+  .modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .modal-content strong {
+    color: #ff6666;
+  }
+  
+  /* Close Button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close-button:hover {
+    color: #ff6666;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .modal-content h2 {
+      font-size: 1.7rem;
+    }
+  
+    .modal-content p {
+      font-size: 1rem;
+    }
+  }
+
+

@@ -1,0 +1,167 @@
+/* RestaurantSearchByID.css */
+.restaurant-search-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(103, 97, 97, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.input-box {
+  flex-grow: 1; /* Allows the input to grow to use available space */
+  margin-right: 50px; /* Space between the input and the button */
+  box-shadow: 0px 0px 10px 10px rgba(249, 247, 247, 0.5);
+  
+}
+
+.red-button {
+  width: auto;
+  padding: 10px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none; /* Optional: Removes outline shown on focus */
+  position: relative; /* Needed for pseudo-elements */
+  overflow: hidden; /* Ensures pseudo-elements don't spill out */
+}
+
+.red-button:hover {
+  background-color: darkred; /* Slightly darker shade on hover */
+}
+
+.red-button:active {
+  transform: scale(0.96); /* Slightly smaller on click */
+  background-color: #ff0000; /* Brighter red when clicked */
+}
+
+/* Simple ripple effect */
+.red-button::after {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: block;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.red-button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+
+
+.restaurant-output-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.restaurant-details-box {
+  flex: 2;
+  background-color: rgba(9, 9, 9, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid white;
+  box-shadow: 0 5px 15px rgba(231, 226, 226, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-section {
+  flex: 2;
+  margin-left: 20px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  border: 2px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  height: 600px;
+}
+
+.restaurant-info-box {
+  background-color: rgba(114, 111, 111, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 10px 10px rgba(159, 157, 157, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  justify-content: space-between;
+}
+
+.restaurant-info-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+}
+
+.rating-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.rating-bar {
+  height: 100%;
+  background-color: rgb(129, 129, 129);
+  border-radius: 10px;
+}
+
+.closed-status {
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .search-section {
+    flex-direction: column;
+  }
+
+  .input-box, .red-button {
+    width: 100%; /* Full width on small screens */
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .red-button {
+    margin-bottom: 0; /* Remove bottom margin for the button */
+  }
+
+  .restaurant-output-section {
+    flex-direction: column;
+  }
+
+  .image-section {
+    margin-left: 0;
+    margin-top: 20px;
+    height: 300px;
+  }
+}

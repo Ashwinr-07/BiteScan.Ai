@@ -1,0 +1,198 @@
+:root {
+  --main-bg-color: #040000;
+  --main-text-color: #fff;
+  --accent-color: #ff0606;
+  --top-color: #1a1a1a;
+  --secondary-color: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: var(--main-bg-color);
+  font-family: 'Arial', sans-serif;
+  color: var(--main-text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-header {
+  width: 100%;
+  height: 80px;
+  background-color: var(--top-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align logo and text to the left */
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 2px dotted var(--accent-color); /* Red dotted line below header */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+  animation: rotate 10s linear infinite; /* Slow rotation animation */
+}
+
+.logo-text {
+  font-size: 2rem; /* Larger font size */
+  font-weight: bold;
+  color: var(--main-text-color); /* Set BiteScan.AI to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for better contrast */
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px 20px;
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-heading {
+  font-size: 3rem;
+  background: linear-gradient(to right, #ff0101, #fafafa, #ff0101);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientAnimation 6s linear infinite;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sub-heading {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dotted-line {
+  border-bottom: 2px dotted rgb(223, 151, 151);
+  width: 100%;
+  margin: 30px 0;
+}
+
+.input-box {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.input-box:focus {
+  border-color: var(--accent-color);
+}
+
+.red-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.red-button:hover {
+  background-color: #ff3366;
+  transform: translateY(-2px);
+}
+
+.red-button:active {
+  transform: translateY(0);
+}
+
+/* Rotate logo around its axis */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  
+  .sub-heading {
+    font-size: 1.2rem;
+  }
+  
+  .red-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .sub-heading {
+    font-size: 1rem;
+  }
+  
+  .red-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

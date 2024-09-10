@@ -1,0 +1,346 @@
+.restaurant-search-by-image {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+@keyframes smoothTyping {
+  0% { width: 0; }
+  50% { width: 100%; }
+  90% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes smoothBlink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+.typing-text {
+  font-size: 3.5rem;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid transparent;
+  width: 0;
+  background: linear-gradient(60deg, #fe0202, #f8f8f8, #fe0202);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: 
+    smoothTyping 8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite,
+    gradientFlow 3s linear infinite,
+    smoothBlink 0.7s ease-in-out infinite;
+  margin-bottom: 30px;
+}
+
+/* Alignment Fix for Input Boxes */
+.location-inputs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure inputs align vertically */
+  margin-top: 20px;
+}
+
+.input-container {
+  flex: 1;
+  margin: 10px; /* Add space between the inputs */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  padding: 10px; /* Add padding to ensure input alignment */
+  height: 50px; /* Set a fixed height for all input boxes */
+}
+
+.input-container input {
+  width: 100%; /* Ensure the input takes full width */
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1); /* Background for the input */
+  color: white;
+  border: none; /* Remove default border */
+  outline: none;
+  text-align: center;
+  height: 100%; /* Make the input fill the entire height */
+}
+
+.red-box {
+  border: 2px dotted red;
+  box-shadow: 0px 0px 4px 4px rgba(255, 2, 2, 0.5);
+  border-radius: 20px;
+}
+
+.white-box {
+  border: 2px dotted white;
+  box-shadow: 0px 0px 4px 4px rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+/* Image Upload Section */
+.image-upload-container {
+  border: 2px dotted red;
+  padding: 20px;
+  background-color: #1a1a1a;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 0px 10px 10px rgba(247, 245, 245, 0.5);
+}
+
+.image-preview-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Button Section */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search-button, .new-image-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.new-image-button {
+  background-color: grey;
+}
+
+.search-button:hover, .new-image-button:hover {
+  transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .location-inputs-container {
+    flex-direction: column;
+  }
+
+  .input-container {
+    margin: 10px 0;
+  }
+
+  .typing-text {
+    font-size: 2rem;
+  }
+}
+
+
+.loading-text {
+  font-size: 1.5rem;
+  color: grey;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* Restaurant Display Boxes */
+.restaurant-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.restaurant-box {
+  background-color: #1a1a1a; /* Default dark background */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(253, 251, 251);
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurant-box:nth-child(odd) {
+  background-color: #333; /* Grey background for odd boxes */
+}
+
+.restaurant-box:nth-child(even) {
+  background-color: #1a1a1a; /* Dark background for even boxes */
+}
+
+.restaurant-box:hover {
+  transform: scale(1.05); /* Slight hover effect */
+  background-color: #262626; /* Lighter dark color on hover */
+  box-shadow: 0px 0px 15px 3px rgba(255, 0, 0, 0.5); /* Glowing red shadow */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .restaurant-boxes {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-boxes {
+    grid-template-columns: 1fr; /* 1 item per row for very small screens */
+  }
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px; /* Space between pagination dots */
+}
+
+.pagination-box {
+  width: 15px; /* Smaller width */
+  height: 15px; /* Smaller height */
+  background-color: grey; /* Default grey background */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.pagination-box.active {
+  background-color: darkred; /* Highlight the active page */
+}
+
+.pagination-box:hover {
+  background-color: white; /* White on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+/* Restaurant Box Styles */
+.restaurant-box {
+  background-color: #1a1a1a; /* Dark background */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(236, 150, 150);
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.restaurant-box:nth-child(even) {
+  background-color: grey; /* Grey background for alternating boxes */
+}
+
+.restaurant-box:hover {
+  transform: scale(1.05); /* Slight hover effect */
+  background-color: darkred; /* Hover changes background to red */
+  border-color: white; /* Hover changes border to white */
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-box {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background-color: grey;
+  border-radius: 50%; /* Keep this to make it circular */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+
+.pagination-box.active {
+  background-color: darkred; /* Highlight the active page */
+}
+
+.pagination-box:hover {
+  background-color: white;
+  transform: scale(1.1); /* Slight hover effect */
+}
+
+/* Overlay Modal for Restaurant Details */
+.restaurant-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.restaurant-detail-card {
+  background-color: #1a1a1a; /* Dark background */
+  color: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 15px;
+  border: 2px solid red;
+  padding: 30px;
+  box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.5); /* Red glowing shadow */
+  position: relative;
+}
+
+.restaurant-detail-card h2 {
+  color: #fe0202; /* Red heading */
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.restaurant-detail-card p {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.restaurant-detail-card .highlight {
+  color: #fe0202; /* Red text highlights */
+  font-weight: bold;
+}
+
+.restaurant-detail-card .close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 30px;
+  text-align: center;
+}
+
+.close-button:hover {
+  background-color: darkred;
+}
