@@ -6,11 +6,10 @@ import base64
 import io
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
 
 # OpenAI API key from environment variable
 ## Load Key 
+openai.api_key = 'API - Key'
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
